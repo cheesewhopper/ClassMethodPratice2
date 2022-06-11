@@ -44,6 +44,8 @@ namespace AnimalShelter
             CustomerArray[CustomerArrayIndex].Address = CusNewAdress.Text;
             CustomerArray[CustomerArrayIndex].Description = CusNewDiscription.Text;
 
+            CustomerList.Items.Add(CustomerArray[CustomerArrayIndex].FirstName);
+
             CustomerArrayIndex++;
 
             /*Cus1 = new Customer(CusNewFirstName.Text, CusNewLastName.Text, DateTime.Parse(CusNewBirthday.Text));
@@ -82,6 +84,20 @@ namespace AnimalShelter
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void CustomerList_Click(object sender, EventArgs e)
+        {
+            string firstName = CustomerList.SelectedItem.ToString();
+
+            for (int i = 0; i < CustomerArrayIndex; i++)
+            {
+                if (CustomerArray[i].FirstName == firstName)
+                {
+                    ShowDetails(CustomerArray[i]);
+                    break;
+                }
+            }
         }
     }
 }

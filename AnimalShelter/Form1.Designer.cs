@@ -51,6 +51,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CusNewLastName = new System.Windows.Forms.TextBox();
+            this.CustomerList = new System.Windows.Forms.ListBox();
             this.CusDetailPanel.SuspendLayout();
             this.CusNewPanel.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             this.CreateCustomer.Location = new System.Drawing.Point(198, 300);
             this.CreateCustomer.Name = "CreateCustomer";
             this.CreateCustomer.Size = new System.Drawing.Size(141, 37);
-            this.CreateCustomer.TabIndex = 0;
+            this.CreateCustomer.TabIndex = 6;
             this.CreateCustomer.Text = "입양자 생성";
             this.CreateCustomer.UseVisualStyleBackColor = true;
             this.CreateCustomer.Click += new System.EventHandler(this.CreateCustomer_Click);
@@ -77,9 +78,9 @@
             this.CusDetailPanel.Controls.Add(this.label5);
             this.CusDetailPanel.Controls.Add(this.CusFullName);
             this.CusDetailPanel.Controls.Add(this.label3);
-            this.CusDetailPanel.Location = new System.Drawing.Point(396, 12);
+            this.CusDetailPanel.Location = new System.Drawing.Point(536, 12);
             this.CusDetailPanel.Name = "CusDetailPanel";
-            this.CusDetailPanel.Size = new System.Drawing.Size(245, 352);
+            this.CusDetailPanel.Size = new System.Drawing.Size(207, 352);
             this.CusDetailPanel.TabIndex = 1;
             this.CusDetailPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.CusDetailPanel_Paint);
             // 
@@ -189,10 +190,10 @@
             this.CusNewPanel.Controls.Add(this.label7);
             this.CusNewPanel.Controls.Add(this.label1);
             this.CusNewPanel.Controls.Add(this.CusNewLastName);
-            this.CusNewPanel.Location = new System.Drawing.Point(12, 12);
+            this.CusNewPanel.Location = new System.Drawing.Point(161, 12);
             this.CusNewPanel.Name = "CusNewPanel";
-            this.CusNewPanel.Size = new System.Drawing.Size(364, 352);
-            this.CusNewPanel.TabIndex = 2;
+            this.CusNewPanel.Size = new System.Drawing.Size(349, 352);
+            this.CusNewPanel.TabIndex = 0;
             this.CusNewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // CusNewBirthday
@@ -200,21 +201,21 @@
             this.CusNewBirthday.Location = new System.Drawing.Point(83, 87);
             this.CusNewBirthday.Name = "CusNewBirthday";
             this.CusNewBirthday.Size = new System.Drawing.Size(100, 23);
-            this.CusNewBirthday.TabIndex = 9;
+            this.CusNewBirthday.TabIndex = 3;
             // 
             // CusNewAdress
             // 
             this.CusNewAdress.Location = new System.Drawing.Point(83, 120);
             this.CusNewAdress.Name = "CusNewAdress";
             this.CusNewAdress.Size = new System.Drawing.Size(256, 23);
-            this.CusNewAdress.TabIndex = 8;
+            this.CusNewAdress.TabIndex = 4;
             // 
             // CusNewFirstName
             // 
             this.CusNewFirstName.Location = new System.Drawing.Point(83, 54);
             this.CusNewFirstName.Name = "CusNewFirstName";
             this.CusNewFirstName.Size = new System.Drawing.Size(100, 23);
-            this.CusNewFirstName.TabIndex = 7;
+            this.CusNewFirstName.TabIndex = 2;
             // 
             // CusNewDiscription
             // 
@@ -222,7 +223,7 @@
             this.CusNewDiscription.Multiline = true;
             this.CusNewDiscription.Name = "CusNewDiscription";
             this.CusNewDiscription.Size = new System.Drawing.Size(256, 131);
-            this.CusNewDiscription.TabIndex = 6;
+            this.CusNewDiscription.TabIndex = 5;
             // 
             // label10
             // 
@@ -230,7 +231,7 @@
             this.label10.Location = new System.Drawing.Point(22, 156);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(42, 15);
-            this.label10.TabIndex = 5;
+            this.label10.TabIndex = 10;
             this.label10.Text = "설명 : ";
             // 
             // label9
@@ -239,7 +240,7 @@
             this.label9.Location = new System.Drawing.Point(22, 123);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 15);
-            this.label9.TabIndex = 4;
+            this.label9.TabIndex = 10;
             this.label9.Text = "주소 : ";
             // 
             // label8
@@ -248,7 +249,7 @@
             this.label8.Location = new System.Drawing.Point(22, 90);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 15);
-            this.label8.TabIndex = 3;
+            this.label8.TabIndex = 9;
             this.label8.Text = "생일 : ";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
@@ -258,7 +259,7 @@
             this.label7.Location = new System.Drawing.Point(22, 57);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 15);
-            this.label7.TabIndex = 2;
+            this.label7.TabIndex = 8;
             this.label7.Text = "이름 : ";
             // 
             // label1
@@ -267,7 +268,7 @@
             this.label1.Location = new System.Drawing.Point(22, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 15);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 7;
             this.label1.Text = "성 : ";
             // 
             // CusNewLastName
@@ -275,13 +276,24 @@
             this.CusNewLastName.Location = new System.Drawing.Point(83, 21);
             this.CusNewLastName.Name = "CusNewLastName";
             this.CusNewLastName.Size = new System.Drawing.Size(100, 23);
-            this.CusNewLastName.TabIndex = 0;
+            this.CusNewLastName.TabIndex = 1;
+            // 
+            // CustomerList
+            // 
+            this.CustomerList.FormattingEnabled = true;
+            this.CustomerList.ItemHeight = 15;
+            this.CustomerList.Location = new System.Drawing.Point(12, 30);
+            this.CustomerList.Name = "CustomerList";
+            this.CustomerList.Size = new System.Drawing.Size(130, 319);
+            this.CustomerList.TabIndex = 3;
+            this.CustomerList.Click += new System.EventHandler(this.CustomerList_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 376);
+            this.ClientSize = new System.Drawing.Size(755, 376);
+            this.Controls.Add(this.CustomerList);
             this.Controls.Add(this.CusNewPanel);
             this.Controls.Add(this.CusDetailPanel);
             this.Name = "Form1";
@@ -319,5 +331,6 @@
         private TextBox CusNewAdress;
         private TextBox CusNewFirstName;
         private TextBox CusNewDiscription;
+        private ListBox CustomerList;
     }
 }
