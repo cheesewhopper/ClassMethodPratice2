@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace AnimalShelter
 {
     public partial class Form1 : Form
@@ -78,7 +80,7 @@ namespace AnimalShelter
 
         private void label8_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -98,6 +100,27 @@ namespace AnimalShelter
                     break;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ArrayList arrayList = new ArrayList();
+            arrayList.Add(0);
+            arrayList.Add(1);
+            arrayList.Add(3);
+
+            arrayList.Insert(2, 2);
+            arrayList.Remove(2);
+            arrayList.RemoveAt(3);
+
+
+            int sum = 0;
+            for (int i = 0; i < arrayList.Count; i++)
+            {
+                int num = (int)arrayList[i];
+                sum += num;
+            }
+
         }
     }
 }
