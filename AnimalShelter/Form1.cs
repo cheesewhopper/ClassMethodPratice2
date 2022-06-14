@@ -4,8 +4,9 @@ namespace AnimalShelter
 {
     public partial class Form1 : Form
     {
-        public Customer[] CustomerArray = new Customer[10];
-        public int CustomerArrayIndex = 0;
+        public List<Customer> Customers = new List<Customer>();
+        //public Customer[] CustomerArray = new Customer[10];
+        //public int CustomerArrayIndex = 0;
         // partial : 클래스의 정의가 다수 되어있다
         public Form1()
         {
@@ -42,13 +43,18 @@ namespace AnimalShelter
 
             //DateTime birthday = new DateTime(2000, 1, 1);
 
-            CustomerArray[CustomerArrayIndex] = new Customer(CusNewFirstName.Text, CusNewLastName.Text, DateTime.Parse(CusNewBirthday.Text));
+            Customer cus = new Customer(CusNewFirstName.Text, CusNewLastName.Text, DateTime.Parse(CusNewBirthday.Text));
+            cus.Address = CusNewAdress.Text;
+            cus.Description = CusNewDiscription.Text;
+
+            /*CustomerArray[CustomerArrayIndex] = new Customer(CusNewFirstName.Text, CusNewLastName.Text, DateTime.Parse(CusNewBirthday.Text));
             CustomerArray[CustomerArrayIndex].Address = CusNewAdress.Text;
-            CustomerArray[CustomerArrayIndex].Description = CusNewDiscription.Text;
-
-            CustomerList.Items.Add(CustomerArray[CustomerArrayIndex].FirstName);
-
+            CustomerArray[CustomerArrayIndex].Description = CusNewDiscription.Text;*/ 
+            /*CustomerList.Items.Add(CustomerArray[CustomerArrayIndex].FirstName);
             CustomerArrayIndex++;
+            */
+            CustomerList.Items.Add(cus.FirstName);
+            Customers.Add(cus);
 
             /*Cus1 = new Customer(CusNewFirstName.Text, CusNewLastName.Text, DateTime.Parse(CusNewBirthday.Text));
             Cus1.Address = CusNewAdress.Text;
@@ -119,6 +125,22 @@ namespace AnimalShelter
             {
                 int num = (int)arrayList[i];
                 sum += num;
+            }
+
+            List<int> intlist = new List<int>();
+            intlist.Add(1);
+            intlist.Add(2);
+
+            int sum2 = 0;
+            for (int i = 0; i < intlist.Count; i++)
+            {
+                int value = intlist[i];
+                sum2 += value;
+            }
+
+            foreach (int value in intlist)
+            {
+                sum += value;
             }
 
         }
