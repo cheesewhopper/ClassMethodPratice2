@@ -41,6 +41,7 @@
             this.CusFullName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CusNewPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.CusNewBirthday = new System.Windows.Forms.TextBox();
             this.CusNewAdress = new System.Windows.Forms.TextBox();
             this.CusNewFirstName = new System.Windows.Forms.TextBox();
@@ -51,10 +52,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CusNewLastName = new System.Windows.Forms.TextBox();
-            this.CustomerList = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CusListPanel = new System.Windows.Forms.Panel();
+            this.CusList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CusDetailPanel.SuspendLayout();
             this.CusNewPanel.SuspendLayout();
+            this.CusListPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CusList)).BeginInit();
             this.SuspendLayout();
             // 
             // CreateCustomer
@@ -192,11 +198,21 @@
             this.CusNewPanel.Controls.Add(this.label7);
             this.CusNewPanel.Controls.Add(this.label1);
             this.CusNewPanel.Controls.Add(this.CusNewLastName);
-            this.CusNewPanel.Location = new System.Drawing.Point(161, 12);
+            this.CusNewPanel.Location = new System.Drawing.Point(343, 15);
             this.CusNewPanel.Name = "CusNewPanel";
             this.CusNewPanel.Size = new System.Drawing.Size(349, 352);
             this.CusNewPanel.TabIndex = 0;
             this.CusNewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(45, 305);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CusNewBirthday
             // 
@@ -280,32 +296,50 @@
             this.CusNewLastName.Size = new System.Drawing.Size(100, 23);
             this.CusNewLastName.TabIndex = 1;
             // 
-            // CustomerList
+            // CusListPanel
             // 
-            this.CustomerList.FormattingEnabled = true;
-            this.CustomerList.ItemHeight = 15;
-            this.CustomerList.Location = new System.Drawing.Point(12, 30);
-            this.CustomerList.Name = "CustomerList";
-            this.CustomerList.Size = new System.Drawing.Size(130, 319);
-            this.CustomerList.TabIndex = 3;
-            this.CustomerList.Click += new System.EventHandler(this.CustomerList_Click);
+            this.CusListPanel.Controls.Add(this.CusList);
+            this.CusListPanel.Location = new System.Drawing.Point(12, 26);
+            this.CusListPanel.Name = "CusListPanel";
+            this.CusListPanel.Size = new System.Drawing.Size(383, 323);
+            this.CusListPanel.TabIndex = 2;
             // 
-            // button1
+            // CusList
             // 
-            this.button1.Location = new System.Drawing.Point(45, 305);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CusList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CusList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.CusList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CusList.Location = new System.Drawing.Point(0, 0);
+            this.CusList.Name = "CusList";
+            this.CusList.RowTemplate.Height = 25;
+            this.CusList.Size = new System.Drawing.Size(383, 323);
+            this.CusList.TabIndex = 0;
+            this.CusList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CusList_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "이름";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "나이";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "입양가능?";
+            this.Column3.Name = "Column3";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 376);
-            this.Controls.Add(this.CustomerList);
+            this.Controls.Add(this.CusListPanel);
             this.Controls.Add(this.CusNewPanel);
             this.Controls.Add(this.CusDetailPanel);
             this.Name = "Form1";
@@ -314,6 +348,8 @@
             this.CusDetailPanel.PerformLayout();
             this.CusNewPanel.ResumeLayout(false);
             this.CusNewPanel.PerformLayout();
+            this.CusListPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CusList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,7 +379,11 @@
         private TextBox CusNewAdress;
         private TextBox CusNewFirstName;
         private TextBox CusNewDiscription;
-        private ListBox CustomerList;
         private Button button1;
+        private Panel CusListPanel;
+        private DataGridView CusList;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
     }
 }

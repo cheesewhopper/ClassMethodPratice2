@@ -47,15 +47,18 @@ namespace AnimalShelter
             cus.Address = CusNewAdress.Text;
             cus.Description = CusNewDiscription.Text;
 
+            CusList.Rows.Add(cus.FirstName, cus.Age, cus.IsQualified);
+            Customers.Add(cus);
+
             /*CustomerArray[CustomerArrayIndex] = new Customer(CusNewFirstName.Text, CusNewLastName.Text, DateTime.Parse(CusNewBirthday.Text));
             CustomerArray[CustomerArrayIndex].Address = CusNewAdress.Text;
             CustomerArray[CustomerArrayIndex].Description = CusNewDiscription.Text;*/ 
             /*CustomerList.Items.Add(CustomerArray[CustomerArrayIndex].FirstName);
             CustomerArrayIndex++;
             */
-            CustomerList.Items.Add(cus.FirstName);
+           // CustomerList.Items.Add(cus.FirstName);
             Customers.Add(cus);
-
+            //26:25
             /*Cus1 = new Customer(CusNewFirstName.Text, CusNewLastName.Text, DateTime.Parse(CusNewBirthday.Text));
             Cus1.Address = CusNewAdress.Text;
             Cus1.Description = CusNewDiscription.Text;
@@ -94,19 +97,28 @@ namespace AnimalShelter
 
         }
 
-        private void CustomerList_Click(object sender, EventArgs e)
-        {
-            string firstName = CustomerList.SelectedItem.ToString();
+        /* private void CustomerList_Click(object sender, EventArgs e)
+         {
+             string firstName = CustomerList.SelectedItem.ToString();
 
-            for (int i = 0; i < CustomerArrayIndex; i++)
-            {
-                if (CustomerArray[i].FirstName == firstName)
-                {
-                    ShowDetails(CustomerArray[i]);
-                    break;
-                }
-            }
-        }
+             foreach (Customer cus in Customers)
+             {
+                 if(cus.FirstName == firstName)
+                 {
+                     ShowDetails(cus);
+                     break; 
+                 }
+             }
+
+             for (int i = 0; i < CustomerArrayIndex; i++)
+             {
+                 if (CustomerArray[i].FirstName == firstName)
+                 {
+                     ShowDetails(CustomerArray[i]);
+                     break;
+                 }
+             }
+         }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -143,6 +155,20 @@ namespace AnimalShelter
                 sum += value;
             }
 
+        }
+
+        private void CusList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string firstName = (string)CusList.Rows[e.RowIndex].Cells[0].Value;
+
+            foreach (Customer cus in Customers)
+            {
+                if (cus.FirstName == firstName)
+                {
+                    ShowDetails(cus);
+                    break;
+                }
+            }
         }
     }
 }
